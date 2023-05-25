@@ -13,7 +13,7 @@ This project is a web application for managing and promoting events. It is built
 ## 🚀 Getting Started
 
 1. Clone the repository: `https://github.com/jagansanikommu/college_event.git`
-2. Navigate to the project directory: `cd event-management`
+2. Navigate to the project directory: `cd college_event`
 3. Install the required dependencies: `pip install -r requirements.txt`
 4. Run the application: `python app.py`
 5. Open your web browser and visit `http://localhost:5000` to access the application.
