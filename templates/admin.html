@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename = 'css/admin.css')}}" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+<title>Admin</title>
+</head>
+  <body>
+    <section>
+      <form action="/admin" method="post">
+          <div class="container">
+              <input type="password" placeholder="Admin Pass" name="password" required>
+              <input type="submit" name="btn" value="Submit">
+          </div>
+        </form>
+        {% if posts %}
+        <div class="container">
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>SL.NO</th>
+              <th>MAIL ID</th>
+              <th>QUERY</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in posts %}
+            <tr>
+              <td>{{ row[0] }}</td>
+              <td><a href="mailto:{{ row[1] }}?subject={{ row[2] }}">{{ row[1] }}</a></td>
+              <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
+        {% endif %}    
+        <div class="button" style="border:black;">
+          <a href="{{ url_for('index') }}" v class="btn">Back to Home</a>
+        </div>
+    </section>
+</body>
+</html>
