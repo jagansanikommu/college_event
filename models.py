@@ -11,3 +11,10 @@ def create_post(mail,query):
     cun.execute('insert into querries(mail, query) values(?, ?)', (mail, query))
     con.commit()
     con.close()
+    
+def get_posts():
+    con=sql.connect(path.join(ROOT,'database.db'))
+    cun = con.cursor()
+    cun.execute('select * from querries')
+    posts = cun.fetchall()
+    return posts
