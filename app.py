@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,redirect,url_for,send_from_directory
-from models import create_post
+from models import create_post,get_posts
 
 app = Flask(__name__)
 
