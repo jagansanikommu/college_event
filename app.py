@@ -43,10 +43,13 @@ def post_query():
         create_post(mail,query)
     return render_template('mail-success.html')
 
-@app.route("/admin")
+@app.route("/admin", methods={"GET","POST"})
 def admin():
-    posts = get_posts()
-    return render_template('admin.html' , posts=posts)
+    if request.method == 'POST':
+        if request.form.get('password') == '725':
+            posts = get_posts()
+            return render_template('admin.html' , posts=posts)
+    return render_template('admin.html')
 
 @app.route("/mail_success")
 def mail_success():
