@@ -43,6 +43,11 @@ def post_query():
         create_post(mail,query)
     return render_template('mail-success.html')
 
+@app.route("/admin")
+def admin():
+    posts = get_posts()
+    return render_template('admin.html' , posts=posts)
+
 @app.route("/mail_success")
 def mail_success():
     return render_template('mail-success.html')
